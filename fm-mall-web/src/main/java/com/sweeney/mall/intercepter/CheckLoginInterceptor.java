@@ -50,6 +50,7 @@ public class CheckLoginInterceptor implements HandlerInterceptor {
         try {
             JWTVerifier verifier = JWT.require(Algorithm.HMAC256("fm-mall")).build();
             DecodedJWT decodedJWT = verifier.verify(token);
+            log.info("令牌校验通过,令牌信息:");
             log.info(decodedJWT.getId());
             log.info(String.valueOf(decodedJWT.getClaim("username")));
         } catch (JWTVerificationException e) {

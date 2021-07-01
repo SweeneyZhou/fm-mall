@@ -1,7 +1,11 @@
 package com.sweeney.mall.entity;
 
-import javax.persistence.*;
+import lombok.Data;
 
+import javax.persistence.*;
+import java.util.List;
+
+@Data
 public class Category {
     /**
      * 主键 分类id主键
@@ -210,4 +214,6 @@ public class Category {
     public void setCategoryBgColor(String categoryBgColor) {
         this.categoryBgColor = categoryBgColor;
     }
+
+    private List<Category> categories;
 }

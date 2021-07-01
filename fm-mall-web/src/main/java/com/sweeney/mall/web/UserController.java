@@ -31,8 +31,8 @@ public class UserController {
 
     @ApiOperation("用户登录接口")
     @ApiImplicitParams({
-            @ApiImplicitParam(name = "username", value = "用户姓名", required = true, dataType = "String"),
-            @ApiImplicitParam(name = "password", value = "用户密码", required = true, dataType = "String")
+            @ApiImplicitParam(name = "username", value = "用户姓名", required = true, dataType = "String", dataTypeClass = String.class),
+            @ApiImplicitParam(name = "password", value = "用户密码", required = true, dataType = "String", dataTypeClass = String.class)
     })
     @GetMapping("/login")
     public ResultVO<Users> login(@RequestParam String username, @RequestParam String password) {
