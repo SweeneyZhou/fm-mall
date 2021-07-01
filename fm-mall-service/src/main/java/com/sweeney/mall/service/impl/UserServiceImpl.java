@@ -44,4 +44,41 @@ public class UserServiceImpl implements UserService {
             return ResultVO.error("用户名已存在!", null);
         }
     }
+
+    @Override
+    public ResultVO<Users> login(String username, String password) {
+        Users record = getByUsername(username);
+
+        if (record == null) {
+            return new ResultVO<>(ResStatus.LOGIN_FAIL_NOT, "用户名不存在!", null);
+        } else {
+            String md5pwd = MD5Utils.md5(password);
+            if (record.getPassword().equals(md5pwd)) {
+                String token = JWT.create()
+                        .withIssuer("auth0")
+                        //签发时间
+                        .withIssuedAt(new Date())
+                        //过期时间
+                        .withExpiresAt(new Date(System.currentTimeMillis() + 24 * 60 * 60 * 1000))
+                        //jwt的id
+                        .withJWTId(String.valueOf(record.getUserId()))
+                        //传递用户信息
+                        .withClaim("username", username)
+                        //签名防止伪造令牌
+                        .sign(Algorithm.HMAC256("fm-mall"));
+                log.warn("token=" + token);
+
+                return ResultVO.ok(token, record);
+            } else {
+                return new ResultVO<>(ResStatus.LOGIN_FAIL_NOT, "密码错误!", null);
+            }
+        }
+    }
+
+    private Users getByUsername(String username) {
+        Example example = new Example(Users.class);
+        Criteria criteria = example.createCriteria();
+        criteria.andEqualTo("username", username);
+        return usersMapper.selectOneByExample(example);
+    }
 }
