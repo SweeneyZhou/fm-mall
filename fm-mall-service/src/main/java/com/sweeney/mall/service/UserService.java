@@ -9,5 +9,7 @@ import com.sweeney.mall.entity.Users;
  */
 public interface UserService {
 
-     ResultVO<Object> register(Users user);
+     ResultVO<Users> register(Users user);
+
+     ResultVO<Users> login(String username, String password);
 }

@@ -32,4 +32,5 @@ public class ResultVO<T> {
     public static <T> ResultVO<T> error(String msg,T data) {
         return new ResultVO<>(ResStatus.NO,msg,data);
     }
+
 }

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="fm-mall-bean" />
+        <module name="fm-mall-service" />
+        <module name="fm-mall-mapper" />
+        <module name="fm-mall-common" />
+        <module name="fm-mall-web" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="fm-mall-bean" options="-parameters" />
+      <module name="fm-mall-common" options="-parameters" />
+      <module name="fm-mall-mapper" options="-parameters" />
+      <module name="fm-mall-service" options="-parameters" />
+      <module name="fm-mall-web" options="-parameters" />
+    </option>
+  </component>
+</project>
