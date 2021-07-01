@@ -1,0 +1,6 @@
+# 项目排除路径
+/fm-mall-bean/target/
+/fm-mall-common/target/
+/fm-mall-mapper/target/
+/fm-mall-service/target/
+/fm-mall-web/target/

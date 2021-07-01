@@ -1,0 +1,9 @@
+spring:
+  profiles:
+    active: mapper,common
+server:
+  port: 8080
+logging:
+  level:
+    root: info
+    o.swagger.models.parameters.AbstractSerializableParameter: warn
