@@ -4,3 +4,4 @@ spring:
     url: jdbc:mysql://localhost:3306/fmmall
     username: root
     password: 123456
+    type: com.alibaba.druid.pool.DruidDataSource
